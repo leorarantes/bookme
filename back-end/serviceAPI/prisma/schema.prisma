@@ -31,7 +31,7 @@ model Client {
 model Service {
   id              String              @unique
   duration        Int
-  price           Decimal             @db.Decimal(10, 2)
+  price           Float
   nameId          Int
   descriptionId   Int
   professionalId  Int
