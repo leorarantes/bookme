@@ -11,3 +11,14 @@ export async function getAll(req: Request, res: Response) {
 
     res.send(services).status(200);
 }
+
+export async function getById(req: Request, res: Response) {
+    const requestId: number = res.locals.requestId;
+    const id: string = req.params.id;
+
+    log.info(`[${requestId}] Retrieving service by ID '${id}'...`);
+    const services = await serviceService.getById(requestId, id);
+    log.info(`[${requestId}] Service successfully retrieved.`);
+
+    res.send(services).status(200);
+}

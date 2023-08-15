@@ -11,7 +11,7 @@ export interface ServiceNameData extends ServiceName {
     }[];
 };
 
-export async function getAll() {
+async function getAll() {
     const servicesNames: ServiceNameData[] = await prisma.serviceName.findMany({
         include: {
             services: {
