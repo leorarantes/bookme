@@ -34,7 +34,7 @@ function getCurrentISODate() {
 const info = (info: string, sensitiveInfo: string[]) => {
     let newInfo = info;
     for(let i = 0; i < sensitiveInfo.length; i++) {
-        newInfo = newInfo.replace("ENCRYPTED", cryptojs.AES.encrypt(sensitiveInfo[i], process.env.ENCRYPT_KEY).toString());
+        newInfo = newInfo.replace("ENCRYPTED", cryptojs.AES.encrypt(sensitiveInfo[i], process.env.SENSITIVE_INFO_ENCRYPT_KEY).toString());
     }
     log.info(newInfo);
 }
