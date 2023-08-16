@@ -1,0 +1,27 @@
+.input {
+  width: 100%;
+  background: $color-grey-super-light;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 2.3rem;
+  margin-top: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1.3rem;
+  text-align: start;
+  color: $color-grey-dark;
+
+  &:focus {
+    border: 2px solid $color-primary;
+    outline: none;
+  }
+
+  &::placeholder {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1.3rem;
+    text-align: start;
+    color: $color-terciary;
+  }
+}

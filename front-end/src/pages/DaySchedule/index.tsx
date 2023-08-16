@@ -37,7 +37,7 @@ function DaySchedule() {
     <Header navigateTo={navigateTo} />
     <div className={`container day-schedule ${fadeOut ? 'fade-out--container' : ''}`}>
       <h1 className='heading-primary'>Horários disponíveis</h1>
-      <h1 className='heading-secondary'>Selecione um <span>horário!</span></h1>
+      <h2 className='heading-secondary'>Selecione um <span>horário!</span></h2>
       <List
         elements={parseListElements(availableTimeSlots)}
         elementType='horários'
