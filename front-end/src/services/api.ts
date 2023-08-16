@@ -5,6 +5,16 @@ export interface ServicePartialData {
     data: string;
 };
 
+export interface ServiceData {
+    id: string;
+    name: string;
+    description: string;
+    duration: string;
+    professional: string;
+    price: string;
+    availability: string[];
+};
+
 const baseServiceAPI = axios.create({
     baseURL: process.env.REACT_APP_SERVICE_API_URL,
 });
@@ -18,8 +28,14 @@ async function getServices() {
     return data;
 }
 
+async function getService(id: string) {
+    const { data }: { data: ServiceData } = await baseServiceAPI.get(`/service/${id}`);
+    return data;
+}
+
 const api = {
-    getServices
+    getServices,
+    getService
 }
 
 export default api;

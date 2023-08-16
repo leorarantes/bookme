@@ -35,7 +35,7 @@ function Home() {
 
       <h3 className='heading-terciary u-center-text'>
         Você gostaria de cancelar um agendamento?
-        <Link to='#' className='u-margin-left-very-small'>Clique aqui!</Link>
+        <Link to='#' className='u-margin-left-super-small'>Clique aqui!</Link>
       </h3>
     </div>
   );

@@ -64,7 +64,7 @@ function List({ elements, elementType, handleElementClick }: ListProps) {
     }
 
     return (
-        <div className='list u-margin-top-small'>
+        <div className='list u-margin-top-super-small'>
             <button ref={up}
                 onClick={() => handleScrollButtonClick('up')}
                 className={`list__scroll-button--no-description ${!isActive ? 'u-rotateX-90' : ''} ${elements.length < 5 ? 'u-display-none' : ''}`}

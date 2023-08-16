@@ -6,18 +6,18 @@ function useService() {
   const id = serviceContext?.id || null;
   const setId = serviceContext?.setId || null;
 
-  function setService(newValue: string) {
+  function setServiceId(newValue: string) {
     if(setId) {
       setId(newValue);
     }
   }
 
-  function getService() {
+  function getServiceId() {
     if(id) return id;
     return '';
   }
 
-  return { getService, setService };
+  return { getServiceId, setServiceId };
 }
 
 export default useService;

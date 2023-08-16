@@ -1,7 +1,7 @@
 import serviceNameRepository, { ServiceNameData } from "../repositories/serviceNameRepository.js";
 import { log } from "../logger.js";
 import serviceRepository, { ServiceData } from "../repositories/serviceRepository.js";
-import { unparseAvailability, unparseDuration, unparsePrice } from "../utils/parse.js";
+import { unparseAvailability, unparseAvailabilityPT, unparseDuration, unparsePrice } from "../utils/parse.js";
 
 export async function getAll(requestId: number) {
   const servicesData: ServiceNameData[] = await serviceNameRepository.getAll();
@@ -28,9 +28,10 @@ export async function getById(requestId: number, id: string) {
     description: service.description.description,
     duration: unparseDuration(service.duration),
     price: unparsePrice(service.price),
+    professional: service.professional.name,
     availability: service.servicesAvailabilities.map((serviceAvailability) => {
       const {dayOfTheWeek, startHour, duration} = serviceAvailability.availability;
-      return unparseAvailability(dayOfTheWeek, startHour, duration);
+      return unparseAvailabilityPT(dayOfTheWeek, startHour, duration);
     })
   };
 }

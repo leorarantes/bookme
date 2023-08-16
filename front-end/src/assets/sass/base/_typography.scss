@@ -53,6 +53,11 @@ a {
             color: #FEFBFB;
         }
     }
+
+    span {
+        font-weight: 700;
+        color: $color-secondary;
+    }
 }
 
 .heading-secondary {
@@ -77,6 +82,15 @@ a {
         }
     }
 
+    &--data-box {
+        width: 100%;
+        margin-bottom: 0.8rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+        line-height: 1.5;
+        color: $color-grey-dark;
+    }
+
     span {
         font-weight: 700;
         color: $color-secondary;
@@ -87,4 +101,14 @@ a {
     width: 24rem;
     font-size: 1.4rem;
     line-height: 1.2;
+}
+
+.text {
+    &--data-box {
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+        line-height: 1.3;
+        color: $color-terciary;
+        text-align: justify;
+    }
 }

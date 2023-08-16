@@ -36,6 +36,20 @@ export function unparseAvailability(dayOfTheWeek: number, startHour: number, dur
     return dayOfTheWeekNameHash[dayOfTheWeek] + ' ' + startHour + 'h-' + (startHour + (duration / 60)) + 'h';
 }
 
+export function unparseAvailabilityPT(dayOfTheWeek: number, startHour: number, duration: number) {
+    const dayOfTheWeekNameHash = {
+        0: "Domingo",
+        1: "Segunda-feira",
+        2: "Terça-feira",
+        3: "Quarta-feira",
+        4: "Quinta-feira",
+        5: "Sexta-feira",
+        6: "Sábado"
+    };
+
+    return dayOfTheWeekNameHash[dayOfTheWeek] + ' ' + startHour + 'h-' + (startHour + (duration / 60)) + 'h';
+}
+
 export function parseDuration(strDuration) {
     return parseInt(strDuration.replace(" minutos", ''));
 }
