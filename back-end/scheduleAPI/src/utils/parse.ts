@@ -33,7 +33,7 @@ export function unparseAvailability(dayOfTheWeek: number, startHour: number, dur
         6: "Saturday"
     };
 
-    return dayOfTheWeekNameHash[dayOfTheWeek] + ' ' + startHour + 'h-' + (startHour + (duration / 60)) + 'h';
+    return dayOfTheWeekNameHash[dayOfTheWeek] + ' ' + startHour + '-' + (startHour + (duration / 60));
 }
 
 export function parseDuration(strDuration) {
@@ -50,4 +50,12 @@ export function parsePrice(strPrice) {
 
 export function unparsePrice(price: number) {
     return "R$ " + price.toFixed(2);
+}
+
+export function twoDigitsNumber(number: number) {
+    if(number || number === 0) {
+        const newNumber = number < 10 ? `0${number}` : `${number}`;
+        return newNumber;
+    }
+    return null;
 }
