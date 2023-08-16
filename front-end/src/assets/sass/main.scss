@@ -16,8 +16,10 @@
 
 // LAYOUT
 @import './layout/container';
+@import './layout/header';
 
 // PAGES
 @import './pages/home';
 @import './pages/error';
 @import './pages/services';
+@import './pages/service';

@@ -1,0 +1,16 @@
+.service {
+  @include centerY;
+
+  &__data-box {
+    width: 55rem;
+    padding: 1.3rem;
+    background-color: $color-grey-super-light;
+
+    &__divider {
+      width: 100%;
+      height: 2px;
+      background-color: $color-grey-light;
+      margin-bottom: 0.8rem;
+    }
+  }
+}

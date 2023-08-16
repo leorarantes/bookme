@@ -1,0 +1,16 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1.7rem 2rem;
+  cursor: pointer;
+  z-index: 2;
+
+  &__logo-box {
+    width: 10rem;
+  }
+  &__logo {
+    width: 100%;
+  }
+}

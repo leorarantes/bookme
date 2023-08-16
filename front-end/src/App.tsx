@@ -8,6 +8,7 @@ import { ServiceProvider } from './contexts/ServiceContext';
 import { AlertProvider } from './contexts/AlertContext';
 import Alert from './components/Alert';
 import Services from './pages/Services';
+import Service from './pages/Service';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/servicos" element={<Services />} />
+              <Route path="/servicos/:serviceName" element={<Service />} />
               <Route path="*" element={<ErrorPage />} />
             </Routes>
             <Alert />
