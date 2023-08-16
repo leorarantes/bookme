@@ -28,6 +28,38 @@ export interface TimeSlotData {
     hourMinute: string;
 };
 
+export interface NewBookData {
+    dateTime: {
+        date: string;
+        time: string;
+    };
+    clientData: {
+        name: string;
+        email: string;
+        phone: string;
+    };
+    serviceId: string;
+};
+
+export interface NewBookData {
+    dateTime: {
+        date: string;
+        time: string;
+    };
+    clientData: {
+        name: string;
+        email: string;
+        phone: string;
+    };
+    serviceId: string;
+};
+
+export interface BookData {
+    date: string;
+    time: string;
+    protocol: string;
+};
+
 const baseServiceAPI = axios.create({
     baseURL: process.env.REACT_APP_SERVICE_API_URL,
 });
@@ -56,11 +88,17 @@ async function getDaySchedule(monthYear: string | null, day: string | null, id: 
     return data;
 }
 
+async function bookService(book: NewBookData) {
+    const { data }: { data: BookData } = await baseScheduleAPI.post('/book', book);
+    return data;
+}
+
 const api = {
     getServices,
     getService,
     getMonthSchedule,
-    getDaySchedule
+    getDaySchedule,
+    bookService
 }
 
 export default api;

@@ -1,0 +1,8 @@
+.new-book {
+  @include centerY;
+
+  &__form {
+    width: 40rem;
+    @include centerY;
+  }
+}
