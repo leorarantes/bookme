@@ -1,0 +1,10 @@
+.error-page {
+  @include centerY;
+
+  &__box {
+      width: fit-content;
+      @include centerY;
+      border: solid 3px $color-white;
+      padding: 2rem;
+  }
+}

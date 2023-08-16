@@ -1,0 +1,9 @@
+.container {
+    min-width: 100vw;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    animation: fadeInContainer 0.2s ease-in;
+}
