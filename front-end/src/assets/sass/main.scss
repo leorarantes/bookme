@@ -13,6 +13,7 @@
 @import './components/button';
 @import './components/alert';
 @import './components/list';
+@import './components/calendar';
 
 // LAYOUT
 @import './layout/container';
@@ -23,3 +24,4 @@
 @import './pages/error';
 @import './pages/services';
 @import './pages/service';
+@import './pages/month-schedule.scss';
