@@ -4,6 +4,8 @@ import useNav from "../../hooks/useNav";
 import useService from "../../hooks/useService";
 import api, { ServiceData } from "../../services/api";
 import Header from "../../components/Header";
+import { getUrl } from "../../utils/navigation";
+import { getCurrentMonthYear } from "../../utils/date";
 
 function Service() {
   const { fadeOut, navigateTo } = useNav();
@@ -11,6 +13,10 @@ function Service() {
 
   const serviceId = getServiceId();
   const [service, setService] = useState<ServiceData | null>(null);
+
+  function handleSeeScheduleClick() {
+    navigateTo(`${getUrl()}/agenda/mes-ano/${getCurrentMonthYear()}`);
+  }
 
   useEffect(() => {
     async function loadPage() {
@@ -47,7 +53,7 @@ function Service() {
           })}
         </p>
       </div>
-      <button className='button--main u-margin-top-small'>Ver agenda</button>
+      <button onClick={handleSeeScheduleClick} className='button--main u-margin-top-small'>Ver agenda</button>
     </div>
     </>
   );

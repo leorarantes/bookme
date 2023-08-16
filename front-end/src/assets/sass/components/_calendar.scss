@@ -1,0 +1,71 @@
+.calendar {
+  &__box {
+    width: 28rem;
+    background-color: $color-white;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  
+    &__header {
+      width: 100%;
+      background-color: $color-primary;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      border-radius: 10px 10px 0 0;
+
+      &__title {
+        font-size: 2.1rem;
+        font-weight: 600;
+        color: $color-white;
+      }
+
+      &__button {
+        width: 2.2rem;
+        height: 2.2rem;
+        background-color: $color-secondary;
+        @include centerX;
+        border-radius: 50%;
+
+        &__icon {
+          width: 1.3rem;
+        }
+      }
+    }
+    
+    &__days__box {
+      display: flex;
+
+      &__column {
+        width: 4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.2rem 0;
+      }
+    }
+
+    &__week-day {
+      margin-bottom: 1.1rem;
+      font-size: 1.7rem;
+      color: $color-terciary;
+    }
+
+    &__day, &__day--active {
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+
+    &__day:not(:last-child), &__day--active:not(:last-child) {
+      margin-bottom: 1.1rem;
+    }
+
+    &__day {
+      color: $color-grey-super-light;
+    }
+
+    &__day--active {
+      color: $color-primary;
+    }
+  }
+}

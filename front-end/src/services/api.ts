@@ -15,6 +15,14 @@ export interface ServiceData {
     availability: string[];
 };
 
+export interface DayData {
+    id: number;
+    year: number;
+    month: number;
+    dayOfTheMonth: number;
+    isAvailable: boolean;
+};
+
 const baseServiceAPI = axios.create({
     baseURL: process.env.REACT_APP_SERVICE_API_URL,
 });
@@ -33,9 +41,15 @@ async function getService(id: string) {
     return data;
 }
 
+async function getMonthSchedule(monthYear: string | null, id: string) {
+    const { data }: { data: DayData[] } = await baseScheduleAPI.get(`/schedule/month/${monthYear}/${id}`);
+    return data;
+}
+
 const api = {
     getServices,
-    getService
+    getService,
+    getMonthSchedule
 }
 
 export default api;

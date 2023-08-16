@@ -14,3 +14,17 @@ export function parseListElements(elements: any[]) {
 export function parseName(name: string) {
   return name.replace(' ', '-').toLowerCase();
 }
+
+export function parseIdHash(elements: any[]) {
+  const hash: any = {};
+  elements.forEach((element) => {
+      const {id, ...props} = element;
+      hash[id] = {...props};
+  });
+  return hash;
+}
+
+export function twoDigitsNumber(number: number) {
+  const newNumber = number < 10 ? `0${number}` : `${number}`;
+  return newNumber;
+}
