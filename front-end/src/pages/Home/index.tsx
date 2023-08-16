@@ -3,16 +3,14 @@ import { useEffect, useState } from "react";
 import Logo from "../../assets/img/logo.svg";
 import { Link } from "react-router-dom";
 import useNav from "../../hooks/useNav";
-import useAlert from "../../hooks/useAlert";
 
 function Home() {
   const { fadeOut, navigateTo } = useNav();
 
   const [logoLoaded, setLogoLoaded] = useState(false);
-  const { throwAlert } = useAlert();
 
   function handleFindClick() {
-    throwAlert("Erro! Tente novamente mais tarde!", "error");
+    navigateTo('/servicos');
   }
 
   useEffect(() => {

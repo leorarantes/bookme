@@ -3,9 +3,13 @@
 
 .u-margin-bottom-medium { margin-bottom: 4rem; }
 .u-margin-bottom-small { margin-bottom: 2rem; }
+.u-margin-top-small { margin-bottom: 2rem; }
+.u-margin-top-big { margin-top: 8rem; }
 .u-margin-left-very-small { margin-left: 0.5rem; }
 
-.u-opacity-0 { opacity: 0; };
+.u-opacity-0 { opacity: 0; }
 
 .u-display-none { display: none; }
-.u-hidden { visibility: hidden };
+.u-hidden { visibility: hidden; }
+
+.u-rotateX-90 { transform: rotateX(90deg); };

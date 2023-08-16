@@ -1,0 +1,105 @@
+.list {
+    width: 55rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__element-box,
+    &__element-box--no-scroll {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__element-box {
+        height: 25rem;
+        margin-bottom: 2rem;
+        overflow-y: scroll;
+    }
+
+    &__element-box--no-scroll {
+        height: fit-content;
+        margin-top: 2rem;
+        overflow-y: hidden;
+    }
+
+    &__element {
+            width: 100%;
+            background: none;
+            @include centerX;
+            border: solid 3px $color-grey-light;
+            border-radius: 0.8rem;
+            margin-bottom: 1rem;
+            padding: 2rem 0;
+            cursor: pointer;
+    
+        &__title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: $color-primary;
+        }
+    }
+
+    &__scroll-button,
+    &__scroll-button--no-description {
+        height: 3rem;
+        background-color: $color-secondary;
+        border-radius: 1.5rem;
+        position: relative;
+        color: $color-white;
+        transition: all 0.1s ease-in;
+    }
+
+    &__scroll-button--no-description {
+        width: 6rem;
+    }
+
+    &__scroll-button {
+        width: 15rem;
+    }
+
+    &__scroll-button:not(:last-child),
+    &__scroll-button--no-description:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__element:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+
+    &__scroll-button__content-box,
+    &__scroll-button__content-box--no-description {
+        height: fit-content;
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.1s ease-in;
+    }
+
+    &__scroll-button__content-box--no-description {
+        width: 1.1rem;
+    }
+
+    &__scroll-button__content-box {
+        width: 10rem;
+    }
+
+    &__scroll-button__content__description {
+        margin-right: 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: $color-white;
+        transition: all 0.1s ease-in;
+    }
+
+    &__scroll-button__content__icon {
+        width: 1.1rem;
+    }
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

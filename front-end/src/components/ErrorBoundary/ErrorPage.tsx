@@ -1,5 +1,5 @@
 function ErrorPage() {
-  setTimeout(() => window.location.href = '/', 5000)
+  setTimeout(() => window.location.href = '/', 5000);
   return (
     <div className='container error-page'>
       <div className='error-page__box'>
