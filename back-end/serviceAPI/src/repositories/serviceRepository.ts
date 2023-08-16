@@ -1,7 +1,7 @@
 import { Availability, Professional, Service, ServiceAvailability, ServiceDescription, ServiceName } from "@prisma/client";
 import { prisma } from "../database.js";
 
-export interface ServiceInfo extends Service {
+export interface ServiceData extends Service {
   name: ServiceName;
   description: ServiceDescription;
   professional: Professional;
@@ -13,7 +13,7 @@ interface ServiceAvailabilityInfo extends ServiceAvailability {
 }
 
 async function getById(id: string) {
-  const service: ServiceInfo = await prisma.service.findFirst({
+  const service: ServiceData = await prisma.service.findFirst({
     where: {
       id
     },

@@ -7,6 +7,7 @@ import ErrorPage from './components/ErrorBoundary/ErrorPage';
 import { ServiceProvider } from './contexts/ServiceContext';
 import { AlertProvider } from './contexts/AlertContext';
 import Alert from './components/Alert';
+import Services from './pages/Services';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <ErrorBoundary>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/servicos" element={<Services />} />
               <Route path="*" element={<ErrorPage />} />
             </Routes>
             <Alert />
