@@ -1,0 +1,11 @@
+.home {
+    @include centerY;
+
+    &__logo-box {
+        width: 26.328125vw;
+    }
+
+    &__logo {
+        width: 100%;
+    }
+}

@@ -1,0 +1,84 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+p,
+span,
+a,
+button,
+input,
+input::placeholder,
+li {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-style: normal;
+    line-height: 100%;
+    color: $color-terciary
+}
+
+a {
+    font-weight: 700;
+    color: $color-secondary;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+
+    &:active {
+        background-color: none;
+        opacity: 0.7;
+    }
+}
+
+.heading-primary {
+    &--error-page {
+        font-size: 4rem;
+        font-weight: 600;
+        color: $color-primary;
+    }
+
+    &--error,
+    &--success,
+    &--warning {
+        &-alert {
+            font-size: 1.4rem;
+            color: #FEFBFB;
+        }
+    }
+}
+
+.heading-secondary {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin-bottom: 3rem;
+
+    &--error-page {
+        width: fit-content;
+        font-size: 2rem;
+        color: $color-secondary
+    }
+
+    &--error,
+    &--success,
+    &--warning {
+        &-alert {
+            width: 100%;
+            font-size: 1.2rem;
+            line-height: 1.3;
+            font-style: italic;
+        }
+    }
+
+    span {
+        font-weight: 700;
+        color: $color-secondary;
+    }
+}
+
+.heading-terciary {
+    width: 24rem;
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
