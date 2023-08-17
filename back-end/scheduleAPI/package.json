@@ -6,10 +6,11 @@
   "type": "module",
   "scripts": {
     "build": "npx prisma generate && rm -rf ./dist && tsc",
-    "start": "node dist/src/index.js",
+    "start": "node src/index.ts",
     "dev": "dotenv -e .env.dev nodemon src/index.ts",
     "test": "rm -rf ./dist && dotenv -e .env.test cross-env NODE_OPTIONS=--experimental-vm-modules jest -i",
-    "test:coverage": "dotenv -e .env.test cross-env NODE_OPTIONS=--experimental-vm-modules jest -- -i --coverage --testPathPattern=tests/unit"
+    "test:coverage": "dotenv -e .env.test cross-env NODE_OPTIONS=--experimental-vm-modules jest -- -i --coverage --testPathPattern=tests/unit",
+    "postinstall": "npx prisma generate"
   },
   "keywords": [],
   "author": "",

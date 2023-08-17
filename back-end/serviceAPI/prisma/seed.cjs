@@ -2,7 +2,37 @@ const { PrismaClient } = require("@prisma/client");
 const fs = require('fs');
 const path = require('path');
 
-import {parseAvailability, parseDuration, parsePrice} from "../src/utils";
+function parseAvailability(strDate) {
+    const dayOfTheWeekHash = {
+        "Sunday": 0,
+        "Monday": 1,
+        "Tuesday": 2,
+        "Wednesday": 3,
+        "Thursday": 4,
+        "Friday": 5,
+        "Saturday": 6
+    };
+
+    const arrDate = strDate.split(' ')
+    const dayOfTheWeek = dayOfTheWeekHash[arrDate[0]];
+    const arrHours = arrDate[1].split('-').map((element) => element.replace('h', ''));
+
+    const greater = parseInt(arrHours[0]) > parseInt(arrHours[1]) ? parseInt(arrHours[0]) : parseInt(arrHours[1]);
+    const minor = parseInt(arrHours[0]) < parseInt(arrHours[1]) ? parseInt(arrHours[0]) : parseInt(arrHours[1]);
+    
+    const startHour = minor;
+    const duration = (greater - minor) * 60;
+
+    return { dayOfTheWeek, startHour, duration };
+}
+
+function parseDuration(strDuration) {
+    return parseInt(strDuration.replace(" minutos", ''));
+}
+
+function parsePrice(strPrice) {
+    return parseFloat(strPrice.replace("R$ ", ''));
+}
 
 const prisma = new PrismaClient();
 
