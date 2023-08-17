@@ -18,7 +18,13 @@ function useBook() {
     }
   }
 
-  return {date, time, protocol, setBook};
+  function getBook() {
+    if(date && time && protocol) {
+      return {date, time, protocol};
+    }
+  }
+
+  return {getBook, setBook};
 }
 
 export default useBook;
