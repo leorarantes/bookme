@@ -69,7 +69,6 @@ model Book {
   serviceId  String
   clientId   Int
   createdAt  DateTime   @default(now())
-  deletedAt  DateTime?
 
   service    Service    @relation(fields: [serviceId], references: [id])
   client     Client     @relation(fields: [clientId], references: [id])

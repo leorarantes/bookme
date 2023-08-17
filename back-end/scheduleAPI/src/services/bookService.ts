@@ -1,5 +1,5 @@
 import serviceRepository, { ServiceAvailabilitiesBooks } from "../repositories/serviceRepository.js";
-import bookRepository from "../repositories/bookRepository.js";
+import bookRepository, { BookClient } from "../repositories/bookRepository.js";
 import clientRepository from "../repositories/clientRepository.js";
 import { log } from "../logger.js";
 import { DAYMS, MINUTEMS, extractIntDateTime, generateBrDate, isNumberInIntervalS, isNumberInIntervalE, getStringHour } from "../utils/date.js";
@@ -114,6 +114,12 @@ export async function create(requestId: number, dateTime: DateTime, clientData: 
     time: dateTime.time,
     protocol
   };
+}
+
+export async function deleteOne(requestId: number, protocol: string) {
+  const book: BookClient = await bookRepository.getByProtocol(protocol);
+  if(!book) throw { type: "error_not_found", message: "Book not found." };
+  await bookRepository.deleteOne(protocol);
 }
 
 export function generateUniqueProtocol(books: Book[]) {
