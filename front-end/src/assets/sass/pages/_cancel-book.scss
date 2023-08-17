@@ -1,0 +1,8 @@
+.cancel-book {
+  @include centerY;
+
+  &__form {
+    width: 13rem;
+    @include centerY;
+  }
+}

@@ -14,6 +14,7 @@ import DaySchedule from './pages/DaySchedule';
 import NewBook from './pages/NewBook';
 import { BookProvider } from './contexts/BookContext';
 import Protocol from './pages/Protocol';
+import CancelBook from './pages/CancelBook';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <ErrorBoundary>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/cancelamento" element={<CancelBook />} />
               <Route path="/servicos" element={<Services />} />
               <Route path="/servicos/:serviceName" element={<Service />} />
               <Route path="/servicos/:serviceName/agenda/mes-ano/:monthYear" element={<MonthSchedule />} />

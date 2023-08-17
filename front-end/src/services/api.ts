@@ -93,12 +93,17 @@ async function bookService(book: NewBookData) {
     return data;
 }
 
+async function deleteBook(protocol: string) {
+    await baseScheduleAPI.delete(`/book/${protocol}`);
+}
+
 const api = {
     getServices,
     getService,
     getMonthSchedule,
     getDaySchedule,
-    bookService
+    bookService,
+    deleteBook
 }
 
 export default api;
