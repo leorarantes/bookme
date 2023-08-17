@@ -5,8 +5,8 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "npx prisma generate && rm -rf ./dist && tsc",
-    "start": "node src/index.ts",
+    "build": "npx prisma migrate dev && rm -rf ./dist && tsc",
+    "start": "node dist/index.js",
     "dev": "dotenv -e .env.dev nodemon src/index.ts",
     "migrate:dev": "dotenv -e .env.dev npx prisma migrate dev",
     "migrate:test": "dotenv -e .env.test npx prisma migrate dev",
