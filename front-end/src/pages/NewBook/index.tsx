@@ -7,6 +7,7 @@ import Header from "../../components/Header";
 import useAlert from "../../hooks/useAlert";
 import { getUrl } from "../../utils/navigation";
 import useBook from "../../hooks/useBook";
+import ErrorPage from "../../components/ErrorBoundary/ErrorPage";
 
 function NewBook() {
   const monthYear = useParams().monthYear || null;
@@ -24,8 +25,7 @@ function NewBook() {
   const [clientPhone, setClientPhone] = useState<string>('');
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const specialChars = /[^a-zA-Z0-9()\-/\s]/g;
-    const newValue = e.target.value.replace(specialChars, '');
+    const newValue = e.target.value;
     switch (e.target.name) {
       case 'name':
         setClientName(newValue);
@@ -60,13 +60,12 @@ function NewBook() {
     }
     if (clientPhone.length < 14) {
       throwAlert(`
-        Atenção! Número de telefone informado é inválido.
+        Atenção! O número de telefone informado é inválido.
       `,
         'warning'
       );
       return;
     }
-
 
     let newBook: NewBookData = {
       dateTime: {
@@ -155,6 +154,7 @@ function NewBook() {
     }
   }
 
+  if(!serviceId) return <ErrorPage />;
   return (
     <>
       <Header navigateTo={navigateTo} />

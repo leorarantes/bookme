@@ -8,6 +8,7 @@ import useNav from '../../hooks/useNav';
 import { getUrl } from '../../utils/navigation';
 import Header from '../../components/Header';
 import useService from '../../hooks/useService';
+import ErrorPage from '../../components/ErrorBoundary/ErrorPage';
 
 function DaySchedule() {
   const monthYear = useParams().monthYear || null;
@@ -32,6 +33,7 @@ function DaySchedule() {
   }, []);
 
   if (!availableTimeSlots) return <></>;
+  if(!serviceId) return <ErrorPage />;
   return (
     <>
     <Header navigateTo={navigateTo} />

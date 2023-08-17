@@ -6,6 +6,7 @@ import api, { ServiceData } from "../../services/api";
 import Header from "../../components/Header";
 import { getUrl } from "../../utils/navigation";
 import { getCurrentMonthYear } from "../../utils/date";
+import ErrorPage from "../../components/ErrorBoundary/ErrorPage";
 
 function Service() {
   const { fadeOut, navigateTo } = useNav();
@@ -26,7 +27,8 @@ function Service() {
     loadPage();
   }, []);
 
-  if (!service || !serviceId) return <></>;
+  if (!service) return <></>;
+  if(!serviceId) return <ErrorPage />;
   return (
     <>
     <Header navigateTo={navigateTo} />

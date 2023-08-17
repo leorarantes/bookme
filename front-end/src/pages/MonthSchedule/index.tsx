@@ -7,6 +7,7 @@ import api, { DayData } from "../../services/api";
 import useService from "../../hooks/useService";
 import Header from "../../components/Header";
 import Calendar from "../../components/Calendar";
+import ErrorPage from "../../components/ErrorBoundary/ErrorPage";
 
 function MonthSchedule() {
   const monthYear = useParams().monthYear || null;
@@ -32,6 +33,7 @@ function MonthSchedule() {
   }, [monthYear]);
 
   if (!days || !monthYear) return <></>;
+  if(!serviceId) return <ErrorPage />;
   return (
     <>
       <Header navigateTo={navigateTo} />
