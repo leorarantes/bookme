@@ -116,7 +116,7 @@ export async function getDaySchedule(requestId: number, serviceId: string, strDa
   const service: ServiceAvailabilitiesBooks = await serviceRepository.getAvailabilitiesBooksByDate(
     serviceId,
     date,
-    // new Date(date.getTime() + DAYMS - 1) === last milisecond of date
+    // new Date(date.getTime() + DAYMS - 1) === last milisecond of day
     new Date(date.getTime() + DAYMS - 1)
   );
   if (!service) throw { type: "error_not_found", message: "Service not found." };
@@ -126,7 +126,7 @@ export async function getDaySchedule(requestId: number, serviceId: string, strDa
   service.servicesAvailabilities.forEach((serviceAvailability) => {
     const availabilityData = serviceAvailability.availability;
     const {dayOfTheWeek, startHour, duration} = availabilityData;
-    const startDateMS = generateBrDate(`${year}-${month}-${day}`, `${twoDigitsNumber(availabilityData.startHour)}:00`).getTime();
+    const startDateMS = generateBrDate(`${year}-${month}-${day}`, `${twoDigitsNumber(startHour)}:00`).getTime();
     const endDateMS = startDateMS + (duration * MINUTEMS);
     if(date.getDay() === dayOfTheWeek) dayAvailabilities.push({startDateMS, endDateMS});
   });
