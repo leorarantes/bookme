@@ -1,4 +1,4 @@
-import { Book } from "@prisma/client";
+import { Book, Client } from "@prisma/client";
 import { prisma } from "../database.js";
 
 export interface BookData {
@@ -6,6 +6,10 @@ export interface BookData {
   date: Date;
   serviceId: string;
   clientId: number;
+}
+
+export interface BookClient extends Book {
+  client: Client;
 }
 
 async function getAll() {
@@ -19,7 +23,29 @@ async function create(bookData: BookData) {
   });
 }
 
+async function getByProtocol(protocol: string) {
+  const book: BookClient = await prisma.book.findFirst({
+    where: {
+      protocol
+    },
+    include: {
+      client: true
+    }
+  });
+  return book;
+}
+
+async function deleteOne(protocol: string) {
+  await prisma.book.delete({
+    where: {
+      protocol
+    }
+  });
+}
+
 export default {
   getAll,
-  create
+  create,
+  getByProtocol,
+  deleteOne
 }

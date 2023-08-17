@@ -25,3 +25,14 @@ export async function create(req: Request, res: Response) {
 
     res.send(book).status(201);
 }
+
+export async function deleteOne(req: Request, res: Response) {
+  const requestId: number = res.locals.requestId;
+  const { protocol } = req.params;
+
+  log.info(`[${requestId}] Deleting book...`);
+  await bookService.deleteOne(requestId, protocol);
+  log.info(`[${requestId}] Book successfully deleted.`);
+
+  res.sendStatus(204);
+}
