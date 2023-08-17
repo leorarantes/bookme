@@ -13,6 +13,7 @@ import MonthSchedule from './pages/MonthSchedule';
 import DaySchedule from './pages/DaySchedule';
 import NewBook from './pages/NewBook';
 import { BookProvider } from './contexts/BookContext';
+import Protocol from './pages/Protocol';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               <Route path="/servicos/:serviceName/agenda/mes-ano/:monthYear" element={<MonthSchedule />} />
               <Route path="/servicos/:serviceName/agenda/mes-ano/:monthYear/dia/:day" element={<DaySchedule />} />
               <Route path="/servicos/:serviceName/agenda/mes-ano/:monthYear/dia/:day/horario/:hourMinute/novo-agendamento" element={<NewBook />} />
+              <Route path="/servicos/:serviceName/agenda/mes-ano/:monthYear/dia/:day/horario/:hourMinute/novo-agendamento/protocolo" element={<Protocol />} />
               <Route path="*" element={<ErrorPage />} />
             </Routes>
             <Alert />

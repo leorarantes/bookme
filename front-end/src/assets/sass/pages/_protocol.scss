@@ -1,0 +1,8 @@
+.protocol {
+  @include centerY;
+
+  &__book-data-box {
+    border: solid 1px $color-grey-light;
+    padding: 2rem 3rem;
+  }
+}
