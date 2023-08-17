@@ -118,7 +118,7 @@ export async function create(requestId: number, dateTime: DateTime, clientData: 
 
 export async function deleteOne(requestId: number, protocol: string) {
   const book: BookClient = await bookRepository.getByProtocol(protocol);
-  if(!book) throw { type: "error_not_found", message: "Book not found." };
+  if(!book) throw { type: "error_unauthorized", message: "Invalid protocol." };
   await bookRepository.deleteOne(protocol);
 }
 
